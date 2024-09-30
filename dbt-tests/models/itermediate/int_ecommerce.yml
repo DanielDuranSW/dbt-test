@@ -13,8 +13,6 @@ models:
     columns:
       - name: order_item_id
         tests:
-          # - not_null
-          # - unique
           - not_null:
               severity: error
           - unique:
@@ -67,7 +65,7 @@ models:
         tests:
           - not_null
           - dbt_utils.expression_is_true:
-              expression: "= (product_retail_price - item_sale_price)"
+              expression: "= (product_retail_price - item_sale_price - 1)"
 
 
   - name: int_ecommerce__first_order_created

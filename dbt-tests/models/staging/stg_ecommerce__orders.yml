@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: stg_ecommerce__orders
+    description: "Prueba de modelo yml"
     columns:
       - name: order_id
         tests:
@@ -49,12 +50,13 @@ models:
       - name: status
         # Look in documents/ecommerce/doc_ecommerce__status.md for this definition
         # We can reuse this definition in any column
-        description: "{{ doc('status') }}"
+        # description: "{{ doc('status') }}"
+        description: "Descripción básica Durán para status"
         tests:
           - not_null
           - accepted_values:
               name: unexpected_order_status # We can name our tests to make it easier to give more meaningful errors
-              values:
+              values: # Es siempre string, no hace falta pone comillas
                 - Processing
                 - Cancelled
                 - Shipped
